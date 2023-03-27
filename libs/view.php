@@ -2,8 +2,8 @@
 
     class View{
         private $mensaje;
+        private $datos;
         function __construct(){
-            
         }
 
         function render($nombre){

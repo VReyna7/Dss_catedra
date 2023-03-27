@@ -1,24 +1,28 @@
 *{
     padding: 0;
     margin: 0;
+    
 }
 
 body{
+    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #dfdfdf;
+    min-height: 100vh;
+    margin-bottom: 40px;
 }
 
 
 .footer{
     position: absolute;
-    bottom: 0;
+    top: 100;
+    margin-top: 30px;
     width: 100%;
 }
 
 main{
     padding: 20px 0;
     width: 100%;
-    height: auto;
     margin: 0 auto;
     text-align: center;
     display: flex;

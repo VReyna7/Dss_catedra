@@ -16,6 +16,8 @@ class App{
             return false;
         }
 
+        
+        
         $archivoController = 'controllers/'.$url[0].'.php';
 
         if(file_exists($archivoController)){
@@ -23,9 +25,15 @@ class App{
 
             //incializa el controlador
             $controller = new $url[0];
-            $controller->loadModel($url[1]);
+            if(isset($url[1])){
+                $controller->loadModel($url[1]);
+            }
 
-
+            if(!isset($url[1]) && $url[0]=='dashboard'){
+                require_once 'controllers/error.php';
+                $controller->loadModel('cupones');
+            }
+    
             //si hay un metodo que se quiere cargar;
             if(isset($url[2])){
                 $controller->{$url[2]}();
