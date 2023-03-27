@@ -14,9 +14,11 @@ class InicioSesion extends Controller{
         extract($_POST);
         $mensajeInicioSesion = "";
         if($this->model->searchUser(['dui'=>$dui])){
-            if($this->model->setUser(['dui'=>$dui,'pass'=>$pass])){
-                $_SESSION['USER'] = 'USUARIO';
+            if(!empty($this->model->setUser(['dui'=>$dui,'pass'=>$pass]))){
+                $data = $this->model->setUser(['dui'=>$dui,'pass'=>$pass]);
+                $_SESSION['USER'] = $data['DUI'];
                 header("location:".constant("URL")."dashboard/usuario"); 
+                echo $_SESSION['USER'];
             }else{
                 $mensajeInicioSesion = "Contraseña incorrecta" ;
             }

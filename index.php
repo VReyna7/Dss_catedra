@@ -6,6 +6,7 @@ require_once 'libs/conexion.php';
  require_once 'libs/view.php';
  require_once 'config/config.php';
 error_reporting(0);
+session_start();
  
  $app = new App();
 

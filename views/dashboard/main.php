@@ -13,6 +13,7 @@
         require_once 'views/templates/header.php'
     ?>
     <h1>PENEEE</h1> 
+    <h1><?=$_SESSION['USER']?></h1>
     <?php
         require_once 'views/templates/footer.php'
     ?>

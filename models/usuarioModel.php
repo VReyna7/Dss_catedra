@@ -51,9 +51,8 @@
                 $row->bindParam(':DUI',$datos['dui']);
                 $row->bindParam(':contra',$datos['pass']);
                 $row->execute();
-                if($row->rowCount()>0){
-                    return true;
-                }
+                $data = $row->fetch(PDO::FETCH_ASSOC);
+                return $data;
             }catch(PDOException $e){
                 return false;
             }
