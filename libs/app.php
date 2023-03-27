@@ -23,12 +23,12 @@ class App{
 
             //incializa el controlador
             $controller = new $url[0];
-            $controller->loadModel($url[0]);
+            $controller->loadModel($url[1]);
 
 
             //si hay un metodo que se quiere cargar;
-            if(isset($url[1])){
-                $controller->{$url[1]}();
+            if(isset($url[2])){
+                $controller->{$url[2]}();
             }else{
                 $controller->render();
             }

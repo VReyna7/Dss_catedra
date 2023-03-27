@@ -9,7 +9,7 @@
         }
 
         function render(){
-            $this->view->render('registro/index');
+            $this->view->render('session/registro');
         }
         
         function registrarAlumno(){
@@ -22,7 +22,7 @@
             }
 
             $this->view->mensaje = $mensajeRegistro;
-            header('location:'.constant('URL').'Main');
+           $this->render();
         }
 
         
