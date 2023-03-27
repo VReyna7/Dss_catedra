@@ -14,6 +14,8 @@
             header('location:'.constant('URL').'dashboard/cupones');
         }else if(isset($_SESSION['EMPLEADO'])){
             header('location:'.constant('URL').'dashboard/cupones');
+        }else{
+            $opcionesLogeado = false;
         }
         require_once 'views/templates/header.php';
     ?>

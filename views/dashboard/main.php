@@ -26,11 +26,12 @@
         foreach($this->datos as $row){
     ?>
         <div>
-            <h3><?php echo $row['titulo']; ?></h3>
-            <p><?php echo $row['descripcion']?> </p>
-            <h3><?php echo $row['NombreEmpresa']; ?></h3>
-            <h3><?php echo $row['precioRegular']; ?></h3>
-            <h3><?php echo $row['precioOferta']; ?></h3>
+            <h3>titulo: <?php echo $row['titulo']; ?></h3>
+            <h3>Descripcion: <?php echo $row['descripcion']?> </h3>
+            <h3>Nombre empresa: <?php echo $row['NombreEmpresa']; ?></h3>
+            <h3>Rubro: <?php echo $row['nombreRubro']; ?></h3>
+            <h3>Precio regular: $ <?php echo $row['precioRegular']; ?></h3>
+            <h3>Precio en oferta $ <?php echo $row['precioOferta']; ?></h3>
             <br>
         </div>
         <br>
