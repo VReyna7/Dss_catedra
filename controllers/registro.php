@@ -22,7 +22,7 @@
             }
 
             $this->view->mensaje = $mensajeRegistro;
-           $this->render();
+            header('location:'.constant('URL').'Main');
         }
 
         
