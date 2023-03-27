@@ -13,12 +13,23 @@ class InicioSesion extends Controller{
     public function login(){
         extract($_POST);
         $mensajeInicioSesion = "";
-        if($this->model->searchUser(['dui'=>$dui])){
-            if(!empty($this->model->setUser(['dui'=>$dui,'pass'=>$pass]))){
-                $data = $this->model->setUser(['dui'=>$dui,'pass'=>$pass]);
+        //Verificacion si es clientej
+        if($this->model->searchUser(['dui'=>$cod])){
+            if(!empty($this->model->setUser(['dui'=>$cod,'pass'=>$pass]))){
+                $data = $this->model->setUser(['dui'=>$cod,'pass'=>$pass]);
+                //Se seta la sesion del cliente
                 $_SESSION['USER'] = $data['DUI'];
                 header("location:".constant("URL")."dashboard/cupones"); 
-                echo $_SESSION['USER'];
+            }else{
+                $mensajeInicioSesion = "Contraseña incorrecta" ;
+            }
+        //Verificacion si es empleado
+        }else if($this->model->searchEmpleado(['cod'=>$cod])){
+            if(!empty($this->model->setEmpleado(['cod'=>$cod,'pass'=>$pass]))){
+                $data = $this->model->setEmpleado(['cod'=>$cod,'pass'=>$pass]);
+                //se setea la sesion del empleado
+                $_SESSION['EMPLEADO'] = $data['CodigoEmpleado'];
+                header("location:".constant("URL")."dashboard/cupones"); 
             }else{
                 $mensajeInicioSesion = "Contraseña incorrecta" ;
             }

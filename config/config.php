@@ -5,5 +5,5 @@ define('HOST','localhost');
 define('DB','bd_dss');
 define('USER','root');
 define('PASSWORD','');
-
+define('TITULO','CULERO');
 ?>

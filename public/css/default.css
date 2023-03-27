@@ -8,15 +8,12 @@ body{
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #dfdfdf;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
-    width: 100%;
+    margin-bottom: 40px;
 }
 
 
 .footer{
-    margin-top: auto;
     position: absolute;
     top: 100;
     margin-top: 30px;
@@ -26,7 +23,6 @@ body{
 main{
     padding: 20px 0;
     width: 100%;
-    height: auto;
     margin: 0 auto;
     text-align: center;
     display: flex;

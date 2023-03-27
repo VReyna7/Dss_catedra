@@ -6,25 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/default.css?v=<?php echo time(); ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Ayuda</title>
+    <title><?=constant('TITULO')?></title>
 </head>
  <?php 
-    if(!isset($_SESSION['USER'])){
-        header('location:'.constant('URL').'main');
-    }else{
+    if(isset($_SESSION['USER'])){
         $opcionesLogeado = true;
+    }else if(isset($_SESSION['EMPLEADO'])){
+        $opcionesLogeado = true;
+    }else{
+        header('location:'.constant('URL').'main');
     }
  ?>
 <body>
     <?php 
         require_once 'views/templates/header.php';
-        foreach($this->datos as $row){
-            echo '<h2>'.$row['titulo'].'</h2>';
+        if(isset($_SESSION['EMPLEADO'])){
+            echo "<h1>Bienvenido". $_SESSION['EMPLEADO']."</h1>";
         }
+        foreach($this->datos as $row){
     ?>
-    <h1>raton</h1>
-    <h1>raton</h1>
-    <h1>raton</h1>
+        <div>
+            <h3><?php echo $row['titulo']; ?></h3>
+            <p><?php echo $row['descripcion']?> </p>
+            <h3><?php echo $row['NombreEmpresa']; ?></h3>
+            <h3><?php echo $row['precioRegular']; ?></h3>
+            <h3><?php echo $row['precioOferta']; ?></h3>
+            <br>
+        </div>
+        <br>
+    <?php } ?>
     <?php 
       require_once 'views/templates/footer.php';
     ?>
