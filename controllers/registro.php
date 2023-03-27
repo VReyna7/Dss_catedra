@@ -12,7 +12,7 @@
             $this->view->render('session/registro');
         }
         
-        function registrarAlumno(){
+        function registrarCliente(){
             extract($_POST);
             $mensajeRegistro = "";
             if($this->model->insert(['dui'=>$dui, 'nombre'=>$nombre, 'apellido'=>$apellido,'telefono'=>$telefono,'correo'=>$correo,'direccion'=>$direccion,'contra'=>$contra])){

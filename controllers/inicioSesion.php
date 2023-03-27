@@ -17,7 +17,7 @@ class InicioSesion extends Controller{
             if(!empty($this->model->setUser(['dui'=>$dui,'pass'=>$pass]))){
                 $data = $this->model->setUser(['dui'=>$dui,'pass'=>$pass]);
                 $_SESSION['USER'] = $data['DUI'];
-                header("location:".constant("URL")."dashboard/usuario"); 
+                header("location:".constant("URL")."dashboard/cupones"); 
                 echo $_SESSION['USER'];
             }else{
                 $mensajeInicioSesion = "Contraseña incorrecta" ;
@@ -27,6 +27,11 @@ class InicioSesion extends Controller{
         }
         $this->view->mensaje = $mensajeInicioSesion;
         $this->render();
+    }
+
+    public function deslogin(){
+        session_destroy();
+        header("location:".constant("URL")."main"); 
     }
 }
 ?>

@@ -9,14 +9,21 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo constant('URL')?>Main">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo constant('URL');?>Main">Inicio</a>
+        </li>
+        <!--<li class="nav-item">
+          <a class="nav-link" href="<?php echo constant('URL');?>Ayuda"></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo constant('URL')?>Ayuda">Ayuda</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo constant('URL')?>Consulta">Consulta</a>
-        </li>
+          <a class="nav-link" href="<?php echo constant('URL')?>Consulta;">Consulta</a>
+        </li>-->
+        <?php 
+          if($opcionesLogeado){
+            echo '<li class="nav-item">
+            <a class="nav-link" href="'.constant('URL').'inicioSesion/usuario/deslogin">Cerrar Sesion</a>
+            </li>';
+          }
+        ?>
       </ul>
     </div>
   </div>

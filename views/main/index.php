@@ -1,4 +1,3 @@
-<?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,7 @@
 </head>
 <body>
     <?php 
+        $opcionesLogeado = false;
         require_once 'views/templates/header.php'
     ?>
     
@@ -23,7 +23,7 @@
     </main>
 
     <?php
-        require_once 'views/templates/footer.php'
+        require_once 'views/templates/footer.php';
     ?>
 </body>
 </html>

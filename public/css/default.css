@@ -1,17 +1,25 @@
 *{
     padding: 0;
     margin: 0;
+    
 }
 
 body{
+    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #dfdfdf;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
 }
 
 
 .footer{
+    margin-top: auto;
     position: absolute;
-    bottom: 0;
+    top: 100;
+    margin-top: 30px;
     width: 100%;
 }
 

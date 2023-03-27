@@ -10,6 +10,7 @@
 </head>
 <body>
 <?php 
+        $opcionesLogeado = false;
         require_once 'views/templates/header.php'
     ?>
     
