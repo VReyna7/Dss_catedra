@@ -35,10 +35,7 @@ class App{
                 $controller->setCupones();
                 return false;
             }
-
-            if(!isset($url[1]) && )
-    
-            //si hay un metodo que se quiere cargar;
+           //si hay un metodo que se quiere cargar;
             if(isset($url[2])){
                 if(method_exists($controller,$url[2])){
                     $controller->{$url[2]}();

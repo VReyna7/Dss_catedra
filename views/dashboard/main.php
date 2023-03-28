@@ -33,7 +33,7 @@
         <h5 class="main-subtittle">Donde encuentras de todo!</h5>
         <div class="row d-flex justify-content-center">
         <?php
-        //if(isset($datos)){
+        if(isset($this->datos)){
         foreach($this->datos as $row){
         ?>
       
@@ -54,7 +54,9 @@
         </div>
 
 
-    <?php } ?>
+    <?php }}else{
+        header('location:'.constant('URL').'dashboard/cupones/setCupones');
+    }?>
     </div>
     </div>
    
