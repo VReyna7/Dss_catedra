@@ -21,6 +21,23 @@
             }
         
         }
+
+        
+
+        public function getCuponesCategoria($categoria){
+            try{
+                $query = "SELECT *,(SELECT nombre FROM rubro WHERE rubro.CodigoRubro in (SELECT idRubro FROM empresa WHERE empresa.CodigoEmpresa= Ofer.idEmpresa)) AS nombreRubro, (SELECT nombre FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS NombreEmpresa FROM oferta AS Ofer WHERE categoria=:categoria" ;
+                $this->conexion = $this->db->conectar();
+                $row = $this->conexion->prepare($query);
+                $row->bindParam(':categoria',$categoria);
+                $row ->execute();
+                $data = $row->fetchAll(PDO::FETCH_ASSOC);
+                return $data;
+            }catch(PDOException $e){
+                return $e->getMessage();
+            }
+        
+        }
     }
 
 ?>

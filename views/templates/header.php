@@ -29,13 +29,13 @@ local_activity
             <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="'.constant("URL").'dashboard/cupones/cuponesCategoria">Hogar</a>
-              <a class="dropdown-item" href="#">Restaurantes</a>
-              <a class="dropdown-item" href="#">Salud</a>
-              <a class="dropdown-item" href="#">Belleza</a>
-              <a class="dropdown-item" href="#">Vacaciones</a>
-              <a class="dropdown-item" href="#">Tecnologia</a>
-              <a class="dropdown-item" href="#">Diversion</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Hogar">Hogar</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Restaurantes">Restaurantes</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Salud">Salud</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Belleza">Belleza</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Automotriz">Automotriz</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Tecnologia">Tecnologia</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Diversion">Diversion</a>
             </div>
           </li>
           <li class="nav-item">

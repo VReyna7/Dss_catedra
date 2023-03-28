@@ -26,7 +26,14 @@ class App{
             //si hay un metodo que se quiere cargar;
             if(isset($url[2])){
                 if(method_exists($controller,$url[2])){
-                    $controller->{$url[2]}();
+                    if(isset($url[3])){
+                        $controller->{$url[2]}($url[3]);
+                    }else{
+                        $controller->{$url[2]}();
+                    }
+        
+                    
+
                 }else{
                     require_once 'controllers/error.php';
                     $controller = new Errors();
