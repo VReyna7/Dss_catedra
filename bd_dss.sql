@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 27-03-2023 a las 21:54:35
--- Versión del servidor: 8.0.31
--- Versión de PHP: 8.2.0
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 28-03-2023 a las 22:48:16
+-- Versión del servidor: 10.4.20-MariaDB
+-- Versión de PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,8 +27,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `cliente`
 --
 
-DROP TABLE IF EXISTS `cliente`;
-CREATE TABLE IF NOT EXISTS `cliente` (
+CREATE TABLE `cliente` (
   `DUI` varchar(10) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
@@ -36,9 +35,8 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `correo` varchar(100) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `contra` varchar(50) NOT NULL,
-  `estado` int NOT NULL,
-  PRIMARY KEY (`DUI`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `estado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -69,16 +67,12 @@ INSERT INTO `cliente` (`DUI`, `nombre`, `apellido`, `telefono`, `correo`, `direc
 -- Estructura de tabla para la tabla `cupon`
 --
 
-DROP TABLE IF EXISTS `cupon`;
-CREATE TABLE IF NOT EXISTS `cupon` (
+CREATE TABLE `cupon` (
   `idCupon` char(5) NOT NULL,
   `idOferta` char(5) NOT NULL,
   `DuiCliente` varchar(10) NOT NULL,
-  `estado` int NOT NULL,
-  PRIMARY KEY (`idCupon`),
-  KEY `idOferta` (`idOferta`),
-  KEY `DuiCliente` (`DuiCliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `estado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `cupon`
@@ -102,18 +96,15 @@ INSERT INTO `cupon` (`idCupon`, `idOferta`, `DuiCliente`, `estado`) VALUES
 -- Estructura de tabla para la tabla `empleado`
 --
 
-DROP TABLE IF EXISTS `empleado`;
-CREATE TABLE IF NOT EXISTS `empleado` (
+CREATE TABLE `empleado` (
   `CodigoEmpleado` char(6) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `correo` varchar(100) NOT NULL,
   `contra` varchar(50) NOT NULL,
   `idEmpresa` char(5) NOT NULL,
-  `Rol` varchar(20) NOT NULL,
-  PRIMARY KEY (`CodigoEmpleado`),
-  KEY `idEmpresa` (`idEmpresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `Rol` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `empleado`
@@ -137,18 +128,15 @@ INSERT INTO `empleado` (`CodigoEmpleado`, `nombre`, `apellido`, `correo`, `contr
 -- Estructura de tabla para la tabla `empresa`
 --
 
-DROP TABLE IF EXISTS `empresa`;
-CREATE TABLE IF NOT EXISTS `empresa` (
+CREATE TABLE `empresa` (
   `CodigoEmpresa` char(5) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `telefono` varchar(9) NOT NULL,
   `correo` varchar(100) NOT NULL,
-  `idRubro` int NOT NULL,
-  `comision` float NOT NULL,
-  PRIMARY KEY (`CodigoEmpresa`),
-  KEY `idRubro` (`idRubro`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `idRubro` int(11) NOT NULL,
+  `comision` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `empresa`
@@ -158,7 +146,7 @@ INSERT INTO `empresa` (`CodigoEmpresa`, `nombre`, `direccion`, `telefono`, `corr
 ('EM001', 'Restaurante Doña Rosa', '3a Avenida Norte 7 C, San Salvador', '2262-8475', 'DoniaRosa@gmail.com', 1001, 7),
 ('EM002', 'Gq Racing Sport', 'Blvr. Sta. Elena 20', '2535-0203', 'TallerGQ@gmail.com', 1002, 8.5),
 ('EM003', 'ZOOVET', 'Avenida Albert Einstein 1', '7050-9654', 'zoovet@gmail.com', 1004, 12),
-('EM004', 'Tony Roma\s','Blvr. del Hipódromo 777, San Salvador', '2298-5050', 'TonyRomas@gmail.com', 1001, 5.2),
+('EM004', 'Tony Romas', 'Blvr. del Hipódromo 777, San Salvador', '2298-5050', 'TonyRomas@gmail.com', 1001, 5.2),
 ('EM005', 'Atami beach house', 'Calle Los Conacastes, poligono i, lote 1, club atami, La Libertad, El Salvador', '2296-2569', 'atamibeach@gmail.com', 1006, 15.2),
 ('EM006', 'El Espíritu de la Montaña', 'Conchagua', '7484-9950', 'EspiritudMontania@gmail.com', 1005, 8.9),
 ('EM007', 'Las Hojas Resort & Beach Club', 'alle Principal 95 Playa Las Hojas, San Pedro', '2505-2800', 'LasHojasResort@gmail.com', 1006, 9.5),
@@ -172,37 +160,36 @@ INSERT INTO `empresa` (`CodigoEmpresa`, `nombre`, `direccion`, `telefono`, `corr
 -- Estructura de tabla para la tabla `oferta`
 --
 
-DROP TABLE IF EXISTS `oferta`;
-CREATE TABLE IF NOT EXISTS `oferta` (
+CREATE TABLE `oferta` (
   `CodigoOferta` char(5) NOT NULL,
   `titulo` varchar(50) NOT NULL,
   `precioRegular` float NOT NULL,
   `precioOferta` float NOT NULL,
   `fechaInicio` date NOT NULL,
   `fechaFin` date NOT NULL,
-  `cantidadLimite` int NOT NULL,
+  `cantidadLimite` int(11) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
   `idEmpresa` char(5) NOT NULL,
   `fechaLimite` date NOT NULL,
-  PRIMARY KEY (`CodigoOferta`),
-  KEY `idEmpresa` (`idEmpresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `CantidadVenta` int(11) NOT NULL,
+  `estado` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `oferta`
 --
 
-INSERT INTO `oferta` (`CodigoOferta`, `titulo`, `precioRegular`, `precioOferta`, `fechaInicio`, `fechaFin`, `cantidadLimite`, `descripcion`, `idEmpresa`, `fechaLimite`) VALUES
-('OF001', 'Banquete para 5', 30.5, 19.99, '2023-02-24', '2023-02-28', 55, 'Banquete familiar para 5 personas', 'EM001', '2023-03-10'),
-('OF002', 'Cambio de aceite', 25, 15, '2023-02-24', '2023-03-10', 150, 'Cambio de aceite', 'EM002', '2023-03-31'),
-('OF003', 'Baño y corte de pelo', 32.99, 21.99, '2023-02-24', '2023-03-31', 200, 'Baño para su mascota mas corte de pelo', 'EM003', '2023-04-27'),
-('OF004', 'Banquete de RIBS para 5 personas', 65.99, 45, '2023-02-24', '2023-03-14', 80, 'Banquete de RIBS para 5 personas !!!', 'EM004', '2023-02-21'),
-('OF005', 'Day pass', 25, 10.99, '2023-02-24', '2023-03-08', 90, 'Day pass Totalmente consumible a su valor original ($25.00)', 'EM005', '2023-03-22'),
-('OF006', 'Cabaña mas kit para fogata', 125.99, 75, '2023-02-24', '2023-03-08', 25, 'Paquete que incluye estancia en cabaña para 4 personas mas un kit para fogata Incluye una glorieta', 'EM006', '2023-03-31'),
-('OF007', 'Day pass Consumible', 25, 15, '2023-02-24', '2023-03-15', 100, 'Day pass consumible a su precio original ($25.00)', 'EM007', '2023-03-31'),
-('OF008', 'Cabaña para 4 personas', 95, 45, '2023-02-24', '2023-03-16', 50, 'Cabaña para 4 personas', 'EM008', '2023-03-31'),
-('OF009', 'Terapia Psicologica', 35, 17.99, '2023-02-24', '2023-03-15', 50, 'Paga $17.99 en lugar de $35 por una sesión de Terapia Psicológica', 'EM009', '2023-03-31'),
-('OF010', 'Cambio de discos de freno', 35, 19.99, '2023-02-24', '2023-03-16', 60, 'Oferta en el cambio de discos de freno', 'EM010', '2023-03-31');
+INSERT INTO `oferta` (`CodigoOferta`, `titulo`, `precioRegular`, `precioOferta`, `fechaInicio`, `fechaFin`, `cantidadLimite`, `descripcion`, `idEmpresa`, `fechaLimite`, `CantidadVenta`, `estado`) VALUES
+('OF001', 'Banquete para 5', 30.5, 19.99, '2023-02-24', '2023-02-28', 55, 'Banquete familiar para 5 personas', 'EM001', '2023-03-10', 54, 0),
+('OF002', 'Cambio de aceite', 25, 15, '2023-02-24', '2023-03-10', 150, 'Cambio de aceite', 'EM002', '2023-03-31', 0, 0),
+('OF003', 'Baño y corte de pelo', 32.99, 21.99, '2023-02-24', '2023-03-31', 200, 'Baño para su mascota mas corte de pelo', 'EM003', '2023-04-27', 0, 0),
+('OF004', 'Banquete de RIBS para 5 personas', 65.99, 45, '2023-02-24', '2023-03-14', 80, 'Banquete de RIBS para 5 personas !!!', 'EM004', '2023-02-21', 0, 0),
+('OF005', 'Day pass', 25, 10.99, '2023-02-24', '2023-03-08', 90, 'Day pass Totalmente consumible a su valor original ($25.00)', 'EM005', '2023-03-22', 0, 0),
+('OF006', 'Cabaña mas kit para fogata', 125.99, 75, '2023-02-24', '2023-03-08', 25, 'Paquete que incluye estancia en cabaña para 4 personas mas un kit para fogata Incluye una glorieta', 'EM006', '2023-03-31', 0, 0),
+('OF007', 'Day pass Consumible', 25, 15, '2023-02-24', '2023-03-15', 100, 'Day pass consumible a su precio original ($25.00)', 'EM007', '2023-03-31', 0, 1),
+('OF008', 'Cabaña para 4 personas', 95, 45, '2023-02-24', '2023-03-16', 50, 'Cabaña para 4 personas', 'EM008', '2023-03-31', 0, 1),
+('OF009', 'Terapia Psicologica', 35, 17.99, '2023-02-24', '2023-03-15', 50, 'Paga $17.99 en lugar de $35 por una sesión de Terapia Psicológica', 'EM009', '2023-03-31', 0, 0),
+('OF010', 'Cambio de discos de freno', 35, 19.99, '2023-02-24', '2023-03-16', 60, 'Oferta en el cambio de discos de freno', 'EM010', '2023-03-31', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -210,13 +197,11 @@ INSERT INTO `oferta` (`CodigoOferta`, `titulo`, `precioRegular`, `precioOferta`,
 -- Estructura de tabla para la tabla `rubro`
 --
 
-DROP TABLE IF EXISTS `rubro`;
-CREATE TABLE IF NOT EXISTS `rubro` (
-  `CodigoRubro` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `rubro` (
+  `CodigoRubro` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
-  PRIMARY KEY (`CodigoRubro`)
-) ENGINE=InnoDB AUTO_INCREMENT=1007 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `descripcion` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `rubro`
@@ -228,7 +213,11 @@ INSERT INTO `rubro` (`CodigoRubro`, `nombre`, `descripcion`) VALUES
 (1003, 'Salud', 'Este rubro esta orientado a las empresas de la rama relacionada con la Salud'),
 (1004, 'Mascotas', 'Este rubro esta orientado a las empresas de la rama relacionada con las mascotas'),
 (1005, 'Turismo', 'Este rubro esta orientado a las empresas de la rama relacionada con el turismo'),
-(1006, 'Alojamientos', 'Este rubro esta orientado a las empresas de la rama relacionada con la hosteleria');
+(1006, 'Alojamientos', 'Este rubro esta orientado a las empresas de la rama relacionada con la hosteleria'),
+(1007, 'Hogar', 'Este rubro esta orientado a las empresas de la rama relacionada con las cosas del hogar'),
+(1008, 'Belleza', 'Este rubro esta orientado a las empresas de la rama relacionada con la belleza'),
+(1009, 'Tecnologia', 'Este rubro esta orientado a las empresas de la rama relacionada con la tecnologia'),
+(1010, 'Diversion', 'Este rubro esta orientado a las empresas de la rama relacionada con la diversion');
 
 -- --------------------------------------------------------
 
@@ -236,13 +225,11 @@ INSERT INTO `rubro` (`CodigoRubro`, `nombre`, `descripcion`) VALUES
 -- Estructura de tabla para la tabla `test`
 --
 
-DROP TABLE IF EXISTS `test`;
-CREATE TABLE IF NOT EXISTS `test` (
+CREATE TABLE `test` (
   `matricula` varchar(20) NOT NULL,
   `nombre` varchar(20) NOT NULL,
-  `apellido` varchar(20) NOT NULL,
-  PRIMARY KEY (`matricula`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `apellido` varchar(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `test`
@@ -253,6 +240,67 @@ INSERT INTO `test` (`matricula`, `nombre`, `apellido`) VALUES
 ('adasd', 'asdsadas', 'sadsad'),
 ('asdsada', 'asdasda', 'asdsad'),
 ('asda213', 'asdasda', 'asdsad');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`DUI`);
+
+--
+-- Indices de la tabla `cupon`
+--
+ALTER TABLE `cupon`
+  ADD PRIMARY KEY (`idCupon`),
+  ADD KEY `idOferta` (`idOferta`),
+  ADD KEY `DuiCliente` (`DuiCliente`);
+
+--
+-- Indices de la tabla `empleado`
+--
+ALTER TABLE `empleado`
+  ADD PRIMARY KEY (`CodigoEmpleado`),
+  ADD KEY `idEmpresa` (`idEmpresa`);
+
+--
+-- Indices de la tabla `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`CodigoEmpresa`),
+  ADD KEY `idRubro` (`idRubro`);
+
+--
+-- Indices de la tabla `oferta`
+--
+ALTER TABLE `oferta`
+  ADD PRIMARY KEY (`CodigoOferta`),
+  ADD KEY `idEmpresa` (`idEmpresa`);
+
+--
+-- Indices de la tabla `rubro`
+--
+ALTER TABLE `rubro`
+  ADD PRIMARY KEY (`CodigoRubro`);
+
+--
+-- Indices de la tabla `test`
+--
+ALTER TABLE `test`
+  ADD PRIMARY KEY (`matricula`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `rubro`
+--
+ALTER TABLE `rubro`
+  MODIFY `CodigoRubro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
 
 --
 -- Restricciones para tablas volcadas
