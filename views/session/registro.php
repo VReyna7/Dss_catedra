@@ -44,6 +44,7 @@
             <label for="direccion">Correo</label>
                 <input type="text" name='direccion' id='direccion'>
             </div><br>
+            <input type="hidden" name='estado' id='estado' value='2'>
             <div>
                 <input type="submit" name='enviar' id='enviar'>
             </div>

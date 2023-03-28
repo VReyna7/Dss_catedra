@@ -32,11 +32,21 @@ class App{
             if(!isset($url[1]) && $url[0]=='dashboard'){
                 require_once 'controllers/error.php';
                 $controller->loadModel('cupones');
+                $controller->setCupones();
+                return false;
             }
+
+            if(!isset($url[1]) && )
     
             //si hay un metodo que se quiere cargar;
             if(isset($url[2])){
-                $controller->{$url[2]}();
+                if(method_exists($controller,$url[2])){
+                    $controller->{$url[2]}();
+                }else{
+                    require_once 'controllers/error.php';
+                    $controller = new Errors();
+                    return false;
+                }
             }else{
                 $controller->render();
             }

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+.navbar-brand{
+    font-family: 'Righteous', cursive;
+}
+
+.dropdown-menu a{
+    color: white;
+    
+}
+
+.card{
+    float: left;
+    margin: 5px 10px 5px 10px;
+}
+
+.container-fluid{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.banner{
+    width: 100%;
+    background-image: url("../img/IMGBAN2.png");
+    height: 75vh;
+    object-fit: fill;
+    position: relative;
+    background-size: cover;
+    top: 0;
+    background-position: center;
+}
+
+.card{
+    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(https://s3-pagapoco-files-dev.s3.us-east-2.amazonaws.com/profile-images/pagapoco_user_oferta9602posi1.jpeg) no-repeat;    background-size: cover;
+    background-position: center;
+}
+
+.card-body{
+    color: white;
+}
+
+.brand-logo{
+    background-image: url(https://s3-pagapoco-files-dev.s3.us-east-2.amazonaws.com/profile-images/pagapoco_user_adara%20est%C3%A9tica%20facial.jpeg);
+    background-position: center;
+    background-size: contain;
+    margin-bottom: 10px;
+}
+
+.card-text{
+    overflow: hidden;
+    width:100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.main-tittle{
+    font-family: 'Righteous', cursive;
+    margin:  20px 30px 0px 30px;
+    text-align: center;
+}
+
+.main-subtittle{
+    font-size: medium;
+    text-align: center;
+    margin: 0px 0px 30px 0px;
+}

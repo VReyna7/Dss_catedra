@@ -7,10 +7,14 @@ class dashboard extends Controller{
     }
 
     public function render(){
-        $this->view->datos = $this->model->getCupones();
         $this->view->render("dashboard/main");
     }
 
+    
+    public function setCupones(){
+        $this->view->datos = $this->model->getCupones();
+        $this->render();
+    }
 
 
 }

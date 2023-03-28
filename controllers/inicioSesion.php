@@ -29,7 +29,7 @@ class InicioSesion extends Controller{
                 $data = $this->model->setEmpleado(['cod'=>$cod,'pass'=>$pass]);
                 //se setea la sesion del empleado
                 $_SESSION['EMPLEADO'] = $data['CodigoEmpleado'];
-                header("location:".constant("URL")."dashboard/cupones"); 
+                header("location:".constant("URL")."dashboard/cupones/setCupones"); 
             }else{
                 $mensajeInicioSesion = "Contraseña incorrecta" ;
             }

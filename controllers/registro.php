@@ -15,7 +15,7 @@
         function registrarCliente(){
             extract($_POST);
             $mensajeRegistro = "";
-            if($this->model->insert(['dui'=>$dui, 'nombre'=>$nombre, 'apellido'=>$apellido,'telefono'=>$telefono,'correo'=>$correo,'direccion'=>$direccion,'contra'=>$contra])){
+            if($this->model->insert(['dui'=>$dui, 'nombre'=>$nombre, 'apellido'=>$apellido,'telefono'=>$telefono,'correo'=>$correo,'direccion'=>$direccion,'contra'=>$contra,'estado'=>$estado])){
                 $mensajeRegistro='Nuevo cliente creado';
             }else{
                 $mensajeRegistro='Error no se pudo agregar Cliente';
