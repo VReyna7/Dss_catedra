@@ -19,7 +19,7 @@ class InicioSesion extends Controller{
                 $data = $this->model->setUser(['dui'=>$cod,'pass'=>$pass]);
                 //Se seta la sesion del cliente
                 $_SESSION['USER'] = $data['DUI'];
-                header("location:".constant("URL")."dashboard/cupones"); 
+                header("location:".constant("URL")."dashboard/cupones/setCupones"); 
             }else{
                 $mensajeInicioSesion = "Contraseña incorrecta" ;
             }
@@ -42,7 +42,7 @@ class InicioSesion extends Controller{
 
     public function deslogin(){
         session_destroy();
-        header("location:".constant("URL")."main"); 
+        header("location:".constant("URL").""); 
     }
 }
 ?>

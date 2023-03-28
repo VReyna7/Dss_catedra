@@ -15,7 +15,7 @@ local_activity
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link active" aria-current="page" href="<?php echo constant('URL');?>Main">Inicio</a>
+        <a class="nav-link active" aria-current="page" href="<?php echo constant('URL');?>">Inicio</a>
       </li>
       <!--<li class="nav-item">
           <a class="nav-link" href="<?php echo constant('URL');?>Ayuda"></a>
@@ -29,7 +29,7 @@ local_activity
             <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="../dashboard/cuponesCategoria.php">Hogar</a>
+              <a class="dropdown-item" href="'.constant("URL").'dashboard/cupones/cuponesCategoria">Hogar</a>
               <a class="dropdown-item" href="#">Restaurantes</a>
               <a class="dropdown-item" href="#">Salud</a>
               <a class="dropdown-item" href="#">Belleza</a>
