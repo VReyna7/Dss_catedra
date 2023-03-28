@@ -11,9 +11,9 @@
 <body>
     <?php 
         if(isset($_SESSION['USER'])){
-            header('location:'.constant('URL').'dashboard/cupones');
+            header('location:'.constant('URL').'dashboard/cupones/setCupones');
         }else if(isset($_SESSION['EMPLEADO'])){
-            header('location:'.constant('URL').'dashboard/cupones');
+            header('location:'.constant('URL').'dashboard/cupones/setCupones');
         }else{
             $opcionesLogeado = false;
         }
@@ -21,7 +21,7 @@
     ?>
     <main>
         <h1 class='center'>Inicio de session</h1>
-        <form action="<?php echo constant('URL')?>inicioSesion/usuario/login" method='POST'>
+        <form action="<?=constant('URL')?>inicioSesion/usuario/login" method='POST'>
             <div>
                 <label for="dui">Ingrese su DUI o Codigo de empleado:</label>
                 <input type="text" name='cod' id='cod'>

@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `contra` varchar(50) NOT NULL,
   `estado` int NOT NULL,
   PRIMARY KEY (`DUI`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `cupon` (
   PRIMARY KEY (`idCupon`),
   KEY `idOferta` (`idOferta`),
   KEY `DuiCliente` (`DuiCliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cupon`
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `empleado` (
   `Rol` varchar(20) NOT NULL,
   PRIMARY KEY (`CodigoEmpleado`),
   KEY `idEmpresa` (`idEmpresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `empleado`
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `empresa` (
   `comision` float NOT NULL,
   PRIMARY KEY (`CodigoEmpresa`),
   KEY `idRubro` (`idRubro`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `empresa`
@@ -158,7 +158,7 @@ INSERT INTO `empresa` (`CodigoEmpresa`, `nombre`, `direccion`, `telefono`, `corr
 ('EM001', 'Restaurante Doña Rosa', '3a Avenida Norte 7 C, San Salvador', '2262-8475', 'DoniaRosa@gmail.com', 1001, 7),
 ('EM002', 'Gq Racing Sport', 'Blvr. Sta. Elena 20', '2535-0203', 'TallerGQ@gmail.com', 1002, 8.5),
 ('EM003', 'ZOOVET', 'Avenida Albert Einstein 1', '7050-9654', 'zoovet@gmail.com', 1004, 12),
-('EM004', 'Tony Roma\'s', 'Blvr. del Hipódromo 777, San Salvador', '2298-5050', 'TonyRomas@gmail.com', 1001, 5.2),
+('EM004', 'Tony Roma\s','Blvr. del Hipódromo 777, San Salvador', '2298-5050', 'TonyRomas@gmail.com', 1001, 5.2),
 ('EM005', 'Atami beach house', 'Calle Los Conacastes, poligono i, lote 1, club atami, La Libertad, El Salvador', '2296-2569', 'atamibeach@gmail.com', 1006, 15.2),
 ('EM006', 'El Espíritu de la Montaña', 'Conchagua', '7484-9950', 'EspiritudMontania@gmail.com', 1005, 8.9),
 ('EM007', 'Las Hojas Resort & Beach Club', 'alle Principal 95 Playa Las Hojas, San Pedro', '2505-2800', 'LasHojasResort@gmail.com', 1006, 9.5),
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `oferta` (
   `fechaLimite` date NOT NULL,
   PRIMARY KEY (`CodigoOferta`),
   KEY `idEmpresa` (`idEmpresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `oferta`
@@ -216,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `rubro` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
   PRIMARY KEY (`CodigoRubro`)
-) ENGINE=InnoDB AUTO_INCREMENT=1007 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1007 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rubro`
@@ -242,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `test` (
   `nombre` varchar(20) NOT NULL,
   `apellido` varchar(20) NOT NULL,
   PRIMARY KEY (`matricula`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `test`

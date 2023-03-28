@@ -15,7 +15,7 @@ local_activity
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link active" aria-current="page" href="<?php echo constant('URL');?>Main">Inicio</a>
+        <a class="nav-link active" aria-current="page" href="<?php echo constant('URL');?>">Inicio</a>
       </li>
       <!--<li class="nav-item">
           <a class="nav-link" href="<?php echo constant('URL');?>Ayuda"></a>
@@ -23,22 +23,22 @@ local_activity
         <li class="nav-item">
           <a class="nav-link" href="<?php echo constant('URL')?>Consulta;">Consulta</a>
         </li>-->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias
-        </a>
-        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="../dashboard/cuponesCategoria.php">Hogar</a>
-          <a class="dropdown-item" href="#">Restaurantes</a>
-          <a class="dropdown-item" href="#">Salud</a>
-          <a class="dropdown-item" href="#">Belleza</a>
-          <a class="dropdown-item" href="#">Vacaciones</a>
-          <a class="dropdown-item" href="#">Tecnologia</a>
-          <a class="dropdown-item" href="#">Diversion</a>
-        </div>
-      </li>
       <?php 
           if($opcionesLogeado){
-            echo '<li class="nav-item">
+            echo '  <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias
+            </a>
+            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Hogar">Hogar</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Restaurante">Restaurantes</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Salud">Salud</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Belleza">Belleza</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Automotriz">Automotriz</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Tecnologia">Tecnologia</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Diversion">Diversion</a>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="'.constant('URL').'inicioSesion/usuario/deslogin">Cerrar Sesion</a>
             </li>';
           }

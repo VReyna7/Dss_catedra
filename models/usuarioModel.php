@@ -12,7 +12,7 @@
 
         public function insert($datos){
             try{
-                $query = "INSERT INTO cliente (DUI,nombre,apellido,telefono,correo,direccion,contra) VALUES (:dui,:nombre,:apellido,:telefono,:correo,:direccion,:contra)";
+                $query = "INSERT INTO cliente (DUI,nombre,apellido,telefono,correo,direccion,contra,estado) VALUES (:dui,:nombre,:apellido,:telefono,:correo,:direccion,:contra,:estado)";
                 $this->conexion = $this->db->conectar();//accedemos a la funcion conectar, y por ende su return,  el cual recordara es la bdd
                 $row = $this->conexion->prepare($query); //preparamos la consulta
                 $row->bindParam(':dui', $datos['dui']);
@@ -21,7 +21,8 @@
                 $row->bindParam(':telefono', $datos['telefono']);   
                 $row->bindParam(':correo', $datos['correo']);   
                 $row->bindParam(':direccion', $datos['direccion']);   
-                $row->bindParam(':contra', $datos['contra']);   
+                $row->bindParam(':contra', $datos['contra']);  
+                $row->bindParam(':estado', $datos['estado']);   
                 $row->execute();//ejecutamos la consulta
                 return true;
             }catch(PDOException $e){
