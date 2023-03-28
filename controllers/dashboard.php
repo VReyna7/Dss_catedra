@@ -12,6 +12,7 @@ class dashboard extends Controller{
     }
 
     public function setCupones(){
+        $this->view->datos = $this->model->UpdateCuponesVencidos();
         $this->view->datos = $this->model->getCupones();
         $this->render();
     }

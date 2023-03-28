@@ -48,11 +48,18 @@
         <h5 class="card-title"><?php echo $row['titulo']; ?></h5>
         <h6 class="card-subtitle mb-2   ">Antes: <?php echo $row['precioRegular']; ?></h6>
         <h6 class="card-subtitle mb-2   ">Ahora: <?php echo $row['precioOferta']; ?></h6>
-        <p class="card-text"><?php echo $row['descripcion']?>.</p>
-        <a href="#" class="card-link">Ver mas</a>
+        <p class="card-text"><?php echo $row['descripcion'];?>.</p>
+        <a href="#" class="card-link"> <button class="btn  btn-dark">Ver mas</button></a>
         <?php if(!$opcionesEmpleado){ ?>
-        <a href="#" class="card-link">Adquirir cupon</a>
+        <a href="#" class="card-link"><button class="btn  btn-primary">Adquirir cupon</button></a>
         <?php }?>
+        <p><?php 
+            if($row['cantidadLimite']==0){
+                echo 'Sin limite';
+            }else{
+                echo 'Limite: '.$row['cantidadLimite'];
+            }
+        ?></p>
         </div>
         </div>
         </div>

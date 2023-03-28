@@ -38,6 +38,17 @@
             }
         
         }
+
+        public function UpdateCuponesVencidos(){
+            try{
+                $query = "UPDATE oferta SET estado=1 WHERE fechaLimite<CURRENT_DATE() AND estado=0;";
+                $this->conexion = $this->db->conectar();
+                $row = $this->conexion->prepare($query);
+                $row ->execute();
+            }catch(PDOException $e){
+                return $e->getMessage();
+            }
+        }
     }
 
 ?>
