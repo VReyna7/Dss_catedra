@@ -43,7 +43,7 @@
        
 
 <div class="col-lg-5">
-        <div class="card" style="width: 100%;">
+       <div class="card" id="card" style="width: 100%; background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url('../../public/img/<?php echo $row['img']; ?>') no-repeat;    background-size: cover; background-position: center;">
         <div class="card-body">
         <img class="brand-logo" style="width: 100px; height: 100px; float: left; margin-right: 10px">
         <h5 class="card-title"><?php echo $row['titulo']; ?></h5>
