@@ -57,5 +57,4 @@ local_activity
     
   </div>
 </nav>
-
 <header>
