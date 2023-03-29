@@ -14,9 +14,10 @@
     
 }
 
-.card{
+#card{
     float: left;
-    margin: 5px 10px 5px 10px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 0.5rem;
 }
 
 .container-fluid{
@@ -25,7 +26,7 @@
 
 .banner{
     width: 100%;
-    background-image: url("../img/IMGBAN2.png");
+    background-image: url("../img/banner.webp");
     height: 75vh;
     object-fit: fill;
     position: relative;
@@ -34,20 +35,8 @@
     background-position: center;
 }
 
-.card{
-    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(https://s3-pagapoco-files-dev.s3.us-east-2.amazonaws.com/profile-images/pagapoco_user_oferta9602posi1.jpeg) no-repeat;    background-size: cover;
-    background-position: center;
-}
-
 .card-body{
     color: white;
-}
-
-.brand-logo{
-    background-image: url(https://s3-pagapoco-files-dev.s3.us-east-2.amazonaws.com/profile-images/pagapoco_user_adara%20est%C3%A9tica%20facial.jpeg);
-    background-position: center;
-    background-size: contain;
-    margin-bottom: 10px;
 }
 
 .card-text{
