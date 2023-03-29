@@ -14,9 +14,16 @@ local_activity
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link active" aria-current="page" href="<?php echo constant('URL');?>">Inicio</a>
-      </li>
+      <?php
+      if($opcionesLogeado){
+        echo "<li class='nav-item active'>
+        <a class='nav-link active' aria-current='page' href='".constant('URL')."dashboard/cupones/setCupones'>Inicio</a>
+      </li>";
+      }else{
+      echo "<li class='nav-item active'>
+        <a class='nav-link active' aria-current='page' href='".constant('URL')."'>Inicio</a>
+      </li>";
+      }?>
       <!--<li class="nav-item">
           <a class="nav-link" href="<?php echo constant('URL');?>Ayuda"></a>
         </li>
@@ -30,7 +37,7 @@ local_activity
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Hogar">Hogar</a>
-              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Restaurantes">Restaurantes</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Restaurante">Restaurantes</a>
               <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Salud">Salud</a>
               <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Belleza">Belleza</a>
               <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Automotriz">Automotriz</a>
@@ -40,6 +47,9 @@ local_activity
           </li>
           <li class="nav-item">
             <a class="nav-link" href="'.constant('URL').'inicioSesion/usuario/deslogin">Cerrar Sesion</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="'.constant('URL').'dashboard/cupones/cuponesComprados">Cupones Comprados</a>
             </li>';
           }
         ?>
@@ -47,12 +57,5 @@ local_activity
     
   </div>
 </nav>
-
-
-
-
-
-
-
 
 <header>

@@ -34,6 +34,7 @@
 <div class="row d-flex justify-content-center">
         <?php
         foreach($this->datos as $row){
+            //if($row['CantidadVenta']<$row['cantidadLimite']){
     ?>
       
        
@@ -46,8 +47,8 @@
         <h6 class="card-subtitle mb-2   ">Antes: <?php echo $row['precioRegular']; ?></h6>
         <h6 class="card-subtitle mb-2   ">Ahora: <?php echo $row['precioOferta']; ?></h6>
         <p class="card-text"><?php echo $row['descripcion']?>.</p>
-        <a href="#" class="card-link">Ver mas</a>
-        <a href="#" class="card-link">Adquirir cupon</a>
+        <a href="#" class="card-link"> <button class="btn  btn-dark">Ver mas</button></a>
+        <a href="#" class="card-link"><button class="btn  btn-primary">Adquirir cupon</button></a>
         </div>
         </div>
         </div>

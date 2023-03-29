@@ -7,6 +7,7 @@ class CuponesCate extends Controller{
     }
 
     public function render($categoria){
+        $this->model->UpdateCuponesVencidos();
         $this->view->datos = $this->model->getCuponesCategoria($categoria);
         $this->view->render("dashboard/cuponesCategoria");
     }
