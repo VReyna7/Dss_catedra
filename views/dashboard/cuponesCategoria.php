@@ -47,7 +47,17 @@
         <h6 class="card-subtitle mb-2   ">Ahora: <?php echo $row['precioOferta']; ?></h6>
         <p class="card-text"><?php echo $row['descripcion']?>.</p>
         <a href="#" class="card-link"> <button class="btn  btn-dark">Ver mas</button></a>
-        <a href="#" class="card-link"><button class="btn  btn-primary">Adquirir cupon</button></a>
+                <?php if(!$opcionesEmpleado){ ?>
+            <button type="button" id="btnmodal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-nom="jose">Adquirir cupon</button>
+
+            <?php }?>
+        <p><?php 
+            if($row['cantidadLimite']==0){
+                echo 'Sin limite';
+            }else{
+                echo 'Limite: '.$row['cantidadLimite'];
+            }
+        ?></p>
         </div>
         </div>
         </div>
