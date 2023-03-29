@@ -10,8 +10,7 @@
     
         public function getCupones(){
             try{
-                $query = "SELECT *,(SELECT nombre FROM rubro WHERE rubro.CodigoRubro in (SELECT idRubro FROM empresa WHERE empresa.CodigoEmpresa= Ofer.idEmpresa)) AS nombreRubro, (SELECT nombre FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS NombreEmpresa FROM oferta AS Ofer WHERE estado=0" ;
-                $this->conexion = $this->db->conectar();
+                $query = "SELECT *,(SELECT nombre FROM rubro WHERE rubro.CodigoRubro in (SELECT idRubro FROM empresa WHERE empresa.CodigoEmpresa= Ofer.idEmpresa)) AS nombreRubro, (SELECT nombre FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS NombreEmpresa, (SELECT logo FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS logo FROM oferta AS Ofer WHERE estado=0" ;                $this->conexion = $this->db->conectar();
                 $row = $this->conexion->prepare($query);
                 $row ->execute();
                 $data = $row->fetchAll(PDO::FETCH_ASSOC);
