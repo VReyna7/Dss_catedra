@@ -24,7 +24,7 @@
 
         public function getCuponesCategoria($categoria){
             try{
-                $query = "SELECT *,(SELECT nombre FROM rubro WHERE rubro.CodigoRubro in (SELECT idRubro FROM empresa WHERE empresa.CodigoEmpresa= Ofer.idEmpresa)) AS nombreRubro, (SELECT nombre FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS NombreEmpresa FROM oferta AS Ofer WHERE Ofer.idEmpresa IN (SELECT codigoEmpresa FROM empresa WHERE empresa.idRubro IN (SELECT CodigoRubro FROM rubro WHERE nombre = :categoria AND estado=0))" ;
+                $query = "SELECT *,(SELECT nombre FROM rubro WHERE rubro.CodigoRubro in (SELECT idRubro FROM empresa WHERE empresa.CodigoEmpresa= Ofer.idEmpresa)) AS nombreRubro, (SELECT nombre FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS NombreEmpresa, (SELECT logo FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS logo  FROM oferta AS Ofer WHERE Ofer.idEmpresa IN (SELECT codigoEmpresa FROM empresa WHERE empresa.idRubro IN (SELECT CodigoRubro FROM rubro WHERE nombre = :categoria AND estado=0));" ;
                 $this->conexion = $this->db->conectar();
                 $row = $this->conexion->prepare($query);
                 $row->bindParam(':categoria',$categoria);
@@ -50,7 +50,7 @@
 
         public function getCuponesComprados($dui){
             try{
-                $query = "SELECT idCupon, (SELECT titulo FROM oferta WHERE CodigoOferta=idOferta) as tituloOferta FROM cuponescomprados WHERE DuiCliente=:DuiCliente" ;
+                $query = "SELECT idCupon, (SELECT titulo FROM oferta WHERE CodigoOferta=idOferta) as tituloOferta,(SELECT img FROM oferta WHERE CodigoOferta=idOferta) AS img,(SELECT logo FROM empresa WHERE empresa.CodigoEmpresa IN (SELECT idEmpresa FROM oferta WHERE oferta.CodigoOferta = idOferta)) AS logo FROM cuponescomprados WHERE DuiCliente=:DuiCliente" ;
                 $this->conexion = $this->db->conectar();
                 $row = $this->conexion->prepare($query);
                 $row->bindParam(':DuiCliente',$dui);

@@ -46,15 +46,16 @@ local_activity
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="'.constant('URL').'inicioSesion/usuario/deslogin">Cerrar Sesion</a>
-            </li>
-          <li class="nav-item">
             <a class="nav-link" href="'.constant('URL').'dashboard/cupones/cuponesComprados">Cupones Comprados</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="'.constant('URL').'inicioSesion/usuario/deslogin">Cerrar Sesion</a>
             </li>';
+            
           }
         ?>
     </ul>
     
   </div>
 </nav>
-<header>
+        </header>

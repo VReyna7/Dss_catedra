@@ -50,10 +50,6 @@
         <h6 class="card-subtitle mb-2   ">Antes: <?php echo $row['precioRegular']; ?></h6>
         <h6 class="card-subtitle mb-2   ">Ahora: <?php echo $row['precioOferta']; ?></h6>
         <p class="card-text"><?php echo $row['descripcion'];?>.</p>
-        <a href="#" class="card-link"> <button class="btn  btn-dark">Ver mas</button></a>
-        <?php if(!$opcionesEmpleado){ ?>
-        <a href="<?=constant('URL')?>dashboard/cupones/adquirirCupon/<?=$row['CodigoOferta']?>_<?=$_SESSION['USER']?>" class="card-link"><button class="btn  btn-primary">Adquirir cupon</button></a>
-        <?php }?>
         <p><?php 
             if($row['cantidadLimite']==0){
                 echo 'Sin limite';
@@ -61,6 +57,10 @@
                 echo 'Limite: '.$row['cantidadLimite'];
             }
         ?></p>
+        <a href="#" class="card-link"> <button class="btn  btn-dark">Ver mas</button></a>
+        <?php if(!$opcionesEmpleado){ ?>
+        <a href="<?=constant('URL')?>dashboard/cupones/adquirirCupon/<?=$row['CodigoOferta']?>_<?=$_SESSION['USER']?>" class="card-link"><button class="btn  btn-primary">Adquirir cupon</button></a>
+        <?php }?>
         </div>
         </div>
         </div>
@@ -93,8 +93,8 @@
     </div>
   </div>
 </div>
-</body>
 <?php 
-      require_once 'views/templates/footer.php';
+     require_once 'views/templates/footer.php';
     ?>
+</body>
 </html>

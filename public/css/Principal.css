@@ -1,0 +1,42 @@
+body{
+     overflow-y: hidden;
+}
+
+.footer{
+    text-align: center;
+    font-family: sans-serif;
+    color: whitesmoke;
+    width: 100%;
+    bottom: 0;
+    position:fixed;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100vh;
+    object-fit: fill;
+    position: relative;
+    background-size: cover;
+    top: 0;
+    background-position: center;
+
+}
+.div-botons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.botonsito{
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+    font-size: 20px!important;
+    border-radius: 20px !important;
+}
+

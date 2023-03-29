@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=constant('TITULO')?></title>
-    <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/default.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/Principal.css?v=<?php echo time(); ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
@@ -14,11 +14,10 @@
         require_once 'views/templates/header.php'
     ?>
     
-    <main>
-        <h1 class='center'>Bienvenido a cupones SV</h1>
+    <main class='main' style='background-image: url(<?php constant('URL')?>public/img/bannerIndex.png)'>
         <div class="div-botons">
             <a href="InicioSesion/usuario"><button class='btn btn-primary botonsito'>Inicio sesion</button></a>
-            <a href="registro/usuario"><button class='btn btn-warning botonsito'>Registrarse</button></a>
+            <a href="registro/usuario"><button class='btn btn-success botonsito'>Registrarse</button></a>
         </div>
     </main>
 
