@@ -28,10 +28,10 @@
         }
         ?>
         <div class="container-fluid">
-         <div class="banner"></div>
-<h1 class="main-tittle">La cuponera</h1>
-<h5 class="main-subtittle">Donde encuentras de todo!</h5>
-<div class="row d-flex justify-content-center">
+        <h1 class="main-tittle">La cuponera</h1>
+        <h5 class="main-subtittle">Donde encuentras de todo!</h5>
+        <h2 class="main-subtittle">Tus Cupones</h2>
+        <div class="row d-flex justify-content-center">
         <?php
         foreach($this->datos as $row){
             //if($row['CantidadVenta']<$row['cantidadLimite']){
@@ -40,24 +40,11 @@
        
 
 <div class="col-lg-5">
-         <div class="card" id="card" style="width: 100%; background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url('../../public/img/<?php echo $row['img']; ?>') no-repeat;    background-size: cover; background-position: center;">
-        <div class="brand-logo" style="width: 100px; height: 100px; float: left; margin-right: 10px; background-image: url('../../public/img/<?php echo $row['logo']; ?>') ; background-repeat: no-repeat; background-position: center; background-size: contain; margin-bottom: 10px;"></div>
-        <h5 class="card-title"><?php echo $row['titulo']; ?></h5>
-        <h6 class="card-subtitle mb-2   ">Antes: <?php echo $row['precioRegular']; ?></h6>
-        <h6 class="card-subtitle mb-2   ">Ahora: <?php echo $row['precioOferta']; ?></h6>
-        <p class="card-text"><?php echo $row['descripcion'];?>.</p>
-        <a href="#" class="card-link"> <button class="btn  btn-dark">Ver mas</button></a>
-                <?php if(!$opcionesEmpleado){ ?>
-            <button type="button" id="btnmodal" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-nom="jose">Adquirir cupon</button>
-
-            <?php }?>
-        <p><?php 
-            if($row['cantidadLimite']==0){
-                echo 'Sin limite';
-            }else{
-                echo 'Limite: '.$row['cantidadLimite'];
-            }
-        ?></p>
+        <div class="card" style="width: 100%;">
+        <div class="card-body">
+        <img class="brand-logo" style="width: 100px; height: 100px; float: left; margin-right: 10px">
+        <h5 class="card-title"><?php echo $row['idCupon']; ?></h5>
+        <h6 class="card-subtitle mb-2   ">Antes: <?php echo $row['tituloOferta']; ?></h6>
         </div>
         </div>
         </div>
