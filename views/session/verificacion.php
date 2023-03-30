@@ -28,7 +28,7 @@
         <div class="mx-auto col-10 col-md-8 col-lg-6" id="contenedorForm">
      <br>
         <h1 class='center'>Verificacion de correo</h1>
-        <form action="<?=constant('URL')?>" method='POST' class="form-group ">
+        <form action="<?=constant('URL')?>registro/usuario/verificacionCliente" method='POST' class="form-group ">
         <div class="form-group row">
                 <label for="dui" >Ingrese su codigo de verificación:</label>
                 <div class="col">

@@ -53,13 +53,14 @@
             $headers .= "X-Mailer: PHP/".phpversion(); 
 
             if(mail($destinatario,$asunto,$cuerpo,$headers)){
-                echo "SE MANDO";
+                $_SESSION['COD'] = $codigo;
+                $_SESSION['DATOS']=array($dui,$nombre,$apellido,$telefono,$correo,$direccion,$contra,$estado);
+                $this->view->render('session/verificacion');
             }else{
-                echo "No se mando";
+                $this->view->mensaje = "ERROR AL MANDAR EL CORREO";
+                $this->view->render('session/registro');
             }
-            $_SESSION['COD'] = $codigo;
-            $_SESSION['DATOS']=array($dui,$nombre,$apellido,$telefono,$correo,$direccion,$contra,$estado);
-            //$this->view->render('session/verificacion');
+            
         }
 
         public function verificacionCliente(){
