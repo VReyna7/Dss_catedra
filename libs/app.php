@@ -22,7 +22,6 @@ class App{
             //si hay un metodo que se quiere cargar;
             $controller = new $url[0];
             if($controller->loadModel($url[1])){
-                $controller->loadModel($url[1]);
                 if(isset($url[2])){
                     if(method_exists($controller,$url[2])){
                         if(isset($url[3])){

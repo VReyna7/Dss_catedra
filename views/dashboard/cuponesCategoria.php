@@ -20,7 +20,8 @@
         $opcionesLogeado = true;
         $opcionesEmpleado = true;
     }else{
-        header('location:'.constant('URL').'main');
+      echo "<script>location.href='".constant('URL')."';</script>";
+      die();
     }
  ?>
 <body>
