@@ -23,7 +23,7 @@
         <div class="mx-auto col-10 col-md-8 col-lg-6" id="contenedorForm">
      <br>
         <h1 class='center'>Pagina de registro</h1>
-        <form action="<?php echo constant('URL')?>registro/usuario/registrarCliente" method='POST' class="form-group">
+        <form action="<?php echo constant('URL')?>registro/usuario/envioVerificacion" method='POST' class="form-group">
         <div class="form-group row">    
             <label for="dui">DUI</label>
             <div class="col">
@@ -49,7 +49,7 @@
             <div class="col">
                 <input type="text"  class="form-control" name='correo' id='correo'>
             </div><br>
-            <label for="direccion">Correo</label>
+            <label for="direccion">Direccion</label>
             <div class="col">
                 <input type="text"  class="form-control" name='direccion' id='direccion'>
             </div><br>

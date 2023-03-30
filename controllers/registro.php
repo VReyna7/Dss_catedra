@@ -12,10 +12,9 @@
             $this->view->render('session/registro');
         }
         
-        function registrarCliente(){
-            extract($_POST);
+        function registrarCliente($datos=array()){
             $mensajeRegistro = "";
-            if($this->model->insert(['dui'=>$dui, 'nombre'=>$nombre, 'apellido'=>$apellido,'telefono'=>$telefono,'correo'=>$correo,'direccion'=>$direccion,'contra'=>$contra,'estado'=>$estado])){
+            if($this->model->insert(['dui'=>$datos[0], 'nombre'=>$datos[1], 'apellido'=>$datos[2],'telefono'=>$datos[3],'correo'=>$datos[4],'direccion'=>$datos[5],'contra'=>$datos[6],'estado'=>$datos[7]])){
                 $mensajeRegistro='Nuevo cliente creado';
             }else{
                 $mensajeRegistro='Error no se pudo agregar Cliente';
@@ -23,6 +22,54 @@
 
             $this->view->mensaje = $mensajeRegistro;
            $this->render();
+        }
+
+        public function envioVerificacion(){
+            extract($_POST);
+            $codigo = rand(1000,9999);
+            $destinatario = $correo; 
+            $asunto = "Este mensaje es de prueba"; 
+            $cuerpo = ' 
+            <html> 
+            <head> 
+               <title>Codigo de verificación</title> 
+            </head> 
+            <body> 
+            <h1>Tu codigo de verificación</h1> 
+            <p> 
+            <b>'.$codigo.'</b> 
+            </p> 
+            </body> 
+            </html> 
+            '; 
+
+            //para el envío en formato HTML 
+            $headers = "MIME-Version: 1.0\r\n"; 
+            $headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
+
+            //dirección del remitente 
+            $headers .= "From: ratonesdss@gmail.com\r\n"; 
+            $headers .= "Reply-to: ratonesdss@gmail.com\r\n"; 
+            $headers .= "X-Mailer: PHP/".phpversion(); 
+
+            if(mail($destinatario,$asunto,$cuerpo,$headers)){
+                echo "SE MANDO";
+            }else{
+                echo "No se mando";
+            }
+            $_SESSION['COD'] = $codigo;
+            $_SESSION['DATOS']=array($dui,$nombre,$apellido,$telefono,$correo,$direccion,$contra,$estado);
+            //$this->view->render('session/verificacion');
+        }
+
+        public function verificacionCliente(){
+            extract($_POST);
+            if($_SESSION['COD']==$cod){
+                $this->registrarCliente($_SESSION['DATOS']);
+            }else{
+                $this->view->mensaje = "CODIGO INCORRECTO";
+                $this->view->render('session/verificacion');
+            }
         }
 
         
