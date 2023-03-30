@@ -20,23 +20,26 @@
         $opcionesLogeado = true;
         $opcionesEmpleado = true;
     }else{
-        header('location:'.constant('URL').'main');
+      echo "<script>location.href='".constant('URL')."';</script>";
+      die();
     }
  ?>
 <body>
     <?php 
         require_once 'views/templates/header.php';
-        if(isset($_SESSION['EMPLEADO'])){
-            echo "<h1>Bienvenido ". $_SESSION['EMPLEADO']."</h1>";
-        }
         ?>
         <div class="container-fluid">
          <div class="banner"></div>
         <h1 class="main-tittle">La cuponera</h1>
         <h5 class="main-subtittle">Donde encuentras de todo!</h5>
         <div class="row d-flex justify-content-center">
-        <h2 class="alert alert-success"><?=$this->mensaje?></h2>
+          <?php 
+            if(!empty($this->mensaje)){
+            echo '<h2 class="alert alert-success">'.$this->mensaje.'</h2>';
+            }
+          ?>
         <?php
+      
         //if(isset($datos)){
         foreach($this->datos as $row){
         ?>
@@ -102,26 +105,6 @@
 </div>
 <?php } ?>
 </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <label >nombre: </label> <input type="text" id="nombre" name=""   >
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
 </div>
 <?php 
      require_once 'views/templates/footer.php';

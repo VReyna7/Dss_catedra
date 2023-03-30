@@ -50,7 +50,7 @@
 
         public function getCuponesComprados($dui){
             try{
-                $query = "SELECT idCupon, (SELECT titulo FROM oferta WHERE CodigoOferta=idOferta) as tituloOferta,(SELECT img FROM oferta WHERE CodigoOferta=idOferta) AS img,(SELECT logo FROM empresa WHERE empresa.CodigoEmpresa IN (SELECT idEmpresa FROM oferta WHERE oferta.CodigoOferta = idOferta)) AS logo FROM cuponescomprados WHERE DuiCliente=:DuiCliente" ;
+                $query = "SELECT *,(SELECT nombre FROM rubro WHERE rubro.CodigoRubro in (SELECT idRubro FROM empresa WHERE empresa.CodigoEmpresa= oferta.idEmpresa)) AS nombreRubro, (SELECT nombre FROM empresa WHERE empresa.CodigoEmpresa = oferta.idEmpresa) AS NombreEmpresa,(SELECT logo FROM empresa WHERE empresa.CodigoEmpresa IN (SELECT idEmpresa FROM oferta WHERE oferta.CodigoOferta = idOferta)) AS logo,(SELECT direccion FROM empresa WHERE empresa.CodigoEmpresa = oferta.idEmpresa) AS direccion FROM oferta INNER JOIN cuponescomprados ON cuponescomprados.idOferta=oferta.CodigoOferta WHERE cuponescomprados.DuiCliente=:DuiCliente";
                 $this->conexion = $this->db->conectar();
                 $row = $this->conexion->prepare($query);
                 $row->bindParam(':DuiCliente',$dui);

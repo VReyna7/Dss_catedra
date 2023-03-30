@@ -16,7 +16,7 @@
     
     <main class='main' style='background-image: url(<?php constant('URL')?>public/img/bannerIndex.png)'>
         <div class="div-botons">
-            <a href="inicioSesion/usuario"><button class='btn btn-primary botonsito'>Inicio sesion</button></a>
+            <a href="InicioSesion/usuario"><button class='btn btn-primary botonsito'>Inicio sesion</button></a>
             <a href="registro/usuario"><button class='btn btn-success botonsito'>Registrarse</button></a>
         </div>
     </main>
