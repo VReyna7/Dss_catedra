@@ -18,30 +18,26 @@ class App{
 
         if(file_exists($archivoController)){
             require_once $archivoController;
-
-            //incializa el controlador
-            $controller = new $url[0];
-            $controller->loadModel($url[1]);
-
+            //incializa el controlado
             //si hay un metodo que se quiere cargar;
-            if(isset($url[2])){
-                if(method_exists($controller,$url[2])){
-                    if(isset($url[3])){
-                        $controller->{$url[2]}($url[3]);
+            $controller = new $url[0];
+            if($controller->loadModel($url[1])){
+                $controller->loadModel($url[1]);
+                if(isset($url[2])){
+                    if(method_exists($controller,$url[2])){
+                        if(isset($url[3])){
+                            $controller->{$url[2]}($url[3]);
+                        }else{
+                            $controller->{$url[2]}();
+                        }
                     }else{
-                        $controller->{$url[2]}();
+                        require_once 'controllers/error.php';
+                        $controller = new Errors();
                     }
-        
-                    
-
                 }else{
-                    require_once 'controllers/error.php';
-                    $controller = new Errors();
+                   $controller->render();
                 }
-            }else{
-                $controller->render();
             }
-
         }else{
             require_once 'controllers/error.php';
             $controller = new Errors();

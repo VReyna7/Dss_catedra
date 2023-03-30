@@ -10,7 +10,7 @@
     
         public function getCupones(){
             try{
-                $query = "SELECT *,(SELECT nombre FROM rubro WHERE rubro.CodigoRubro in (SELECT idRubro FROM empresa WHERE empresa.CodigoEmpresa= Ofer.idEmpresa)) AS nombreRubro, (SELECT nombre FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS NombreEmpresa,  (SELECT logo FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS logo FROM oferta AS Ofer WHERE estado=0" ;
+                $query = "SELECT *,(SELECT nombre FROM rubro WHERE rubro.CodigoRubro in (SELECT idRubro FROM empresa WHERE empresa.CodigoEmpresa= Ofer.idEmpresa)) AS nombreRubro, (SELECT nombre FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS NombreEmpresa,(SELECT direccion FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS direccion , (SELECT logo FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS logo FROM oferta AS Ofer WHERE estado=0" ;
                 $this->conexion = $this->db->conectar();
                 $row = $this->conexion->prepare($query);
                 $row ->execute();
@@ -24,7 +24,7 @@
 
         public function getCuponesCategoria($categoria){
             try{
-                $query = "SELECT *,(SELECT nombre FROM rubro WHERE rubro.CodigoRubro in (SELECT idRubro FROM empresa WHERE empresa.CodigoEmpresa= Ofer.idEmpresa)) AS nombreRubro, (SELECT nombre FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS NombreEmpresa, (SELECT logo FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS logo  FROM oferta AS Ofer WHERE Ofer.idEmpresa IN (SELECT codigoEmpresa FROM empresa WHERE empresa.idRubro IN (SELECT CodigoRubro FROM rubro WHERE nombre = :categoria AND estado=0));" ;
+                $query = "SELECT *,(SELECT nombre FROM rubro WHERE rubro.CodigoRubro in (SELECT idRubro FROM empresa WHERE empresa.CodigoEmpresa= Ofer.idEmpresa)) AS nombreRubro, (SELECT nombre FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS NombreEmpresa, (SELECT direccion FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS direccion  ,(SELECT logo FROM empresa WHERE empresa.CodigoEmpresa = Ofer.idEmpresa) AS logo  FROM oferta AS Ofer WHERE Ofer.idEmpresa IN (SELECT codigoEmpresa FROM empresa WHERE empresa.idRubro IN (SELECT CodigoRubro FROM rubro WHERE nombre = :categoria AND estado=0));" ;
                 $this->conexion = $this->db->conectar();
                 $row = $this->conexion->prepare($query);
                 $row->bindParam(':categoria',$categoria);

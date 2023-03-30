@@ -15,6 +15,7 @@ class Controller{
                 require $url;
                 $modelName = $model.'Model';
                 $this->model = new $modelName();
+                return true;
             }else{
                 require_once 'controllers/error.php';
                 $controller = new Errors();

@@ -42,7 +42,7 @@ class InicioSesion extends Controller{
 
     public function deslogin(){
         session_destroy();
-        header("location:".constant("URL")."main"); 
+        header("location:".constant("URL")); 
     }
 }
 ?>

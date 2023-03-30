@@ -32,7 +32,7 @@ local_activity
         </li>-->
       <?php 
           if($opcionesLogeado){
-            echo '  <li class="nav-item dropdown">
+            echo ' <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">

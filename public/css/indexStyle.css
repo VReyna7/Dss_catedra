@@ -54,8 +54,6 @@
 .card-text{
     overflow: hidden;
     width:100%;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
 
@@ -69,4 +67,40 @@
     font-size: medium;
     text-align: center;
     margin: 0px 0px 30px 0px;
+}
+
+#contenedorForm{
+    color: white;
+   background-color: rgba(0, 0, 0, 0.788) ;
+    background-size: cover;
+    border: outset 1.5px black;
+    border-radius: 10px;
+}
+
+body{
+    background: linear-gradient(rgba(255, 255, 255, 0.178), rgba(255, 255, 255, 0.178)), url("../img/fondo1.jpg");
+
+}
+
+.bienvenida{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    color: crimson;
+    font-size: xx-large;
+    margin-top: 30px;
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+    .tittleDiv h1{
+        font-size: 50px;
+        -webkit-text-stroke: 1px black;
+        -webkit-text-fill-color: black;
+    }
+    .tittleDiv h5{
+        font-size: large;
+        -webkit-text-stroke: 1px black;
+        -webkit-text-fill-color: black;
+    }
+    
 }
