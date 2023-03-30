@@ -3,6 +3,7 @@
     class View{
         private $mensaje;
         private $datos;
+        private $mensajeProcesoCorrecto;
         function __construct(){
         }
 

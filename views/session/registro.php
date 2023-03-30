@@ -23,45 +23,51 @@
         <div class="mx-auto col-10 col-md-8 col-lg-6" id="contenedorForm">
      <br>
         <h1 class='center'>Pagina de registro</h1>
+         <?php 
+            if(!empty($this->mensaje)){
+            echo '<h2 class="alert alert-danger">'.$this->mensaje.'</h2>';
+            }elseif(!empty($this->mensajeProcesoCorrecto)){
+                 echo '<h2 class="alert alert-success">'.$this->mensaje.'</h2>';
+            }
+          ?>
         <form action="<?php echo constant('URL')?>registro/usuario/envioVerificacion" method='POST' class="form-group">
         <div class="form-group row">    
             <label for="dui">DUI</label>
             <div class="col">
-            <input type="text"  class="form-control" name='dui' id='dui'>
+            <input type="text"  class="form-control" name='dui' id='dui' required>
             </div><br>
             <label for="nombre">Nombre</label>
             <div class="col">
-                <input type="text"  class="form-control" name='nombre' id='nombre'>
+                <input type="text"  class="form-control" name='nombre' id='nombre' required>
             </div><br>
             <label for="apellido">Apellido</label>
             <div class="col">
-                <input type="text"  class="form-control" name='apellido' id='apellido'>
+                <input type="text"  class="form-control" name='apellido' id='apellido' required>
             </div><br>
             <label for="contra">Contraseña</label>
             <div class="col">
-                <input type="text"  class="form-control"  class="form-control" name='contra' id='contra'>
+                <input type="text"  class="form-control"  class="form-control" name='contra' id='contra' required>
             </div><br>
             <label for="telefono">Telefono</label>
             <div class="col">
-                <input type="text"  class="form-control" name='telefono' id='telefono'>
+                <input type="text"  class="form-control" name='telefono' id='telefono' required>
             </div><br>
             <label for="correo">Correo</label>
             <div class="col">
-                <input type="text"  class="form-control" name='correo' id='correo'>
+                <input type="text"  class="form-control" name='correo' id='correo' required>
             </div><br>
             <label for="direccion">Direccion</label>
             <div class="col">
-                <input type="text"  class="form-control" name='direccion' id='direccion'>
+                <input type="text"  class="form-control" name='direccion' id='direccion' required>
             </div><br>
             <input type="hidden" name='estado' id='estado' value='2'>
             <br><div>
-                <input type="submit" name='enviar'  class="btn btn-primary" id='enviar'>
+                <input type="submit" name='enviar'  class="btn btn-primary" id='enviar' required>
             </div>
             </div>
         </form>
         </div>
         </div>
-        <h1><?php echo $this->mensaje; ?></h1>
         </div>
     </main>
     <?php

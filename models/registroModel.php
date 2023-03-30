@@ -28,6 +28,53 @@
         
         }
 
+        public function searchCliente($datos){
+            try{
+                $query = "SELECT * FROM cliente WHERE DUI=:DUI";
+                $this->conexion = $this->db->conectar();//accedemos a la funcion conectar, y por ende su return,  el cual recordara es la bdd
+                $row=$this->conexion->prepare($query);
+                $row->bindParam(':DUI',$datos['dui']);
+                $row->execute();
+                if($row->rowCount()>0){
+                    return true;
+                }
+            }catch(PDOException $e){
+                return false;
+            }
+        }
+
+        public function searchClienteDUI($datos){
+            try{
+                $query = "SELECT * FROM cliente WHERE DUI=:DUI";
+                $this->conexion = $this->db->conectar();//accedemos a la funcion conectar, y por ende su return,  el cual recordara es la bdd
+                $row=$this->conexion->prepare($query);
+                $row->bindParam(':DUI',$datos);
+                $row->execute();
+                if($row->rowCount()>0){
+                    return true;
+                }
+            }catch(PDOException $e){
+                return false;
+            }
+        }
+
+        public function searchClienteCorreo($datos){
+            try{
+                $query = "SELECT * FROM cliente WHERE correo=:correo";
+                $this->conexion = $this->db->conectar();//accedemos a la funcion conectar, y por ende su return,  el cual recordara es la bdd
+                $row=$this->conexion->prepare($query);
+                $row->bindParam(':correo',$datos);
+                $row->execute();
+                if($row->rowCount()>0){
+                    return true;
+                }
+            }catch(PDOException $e){
+                return false;
+            }
+        }
+
+
+
         
         
 

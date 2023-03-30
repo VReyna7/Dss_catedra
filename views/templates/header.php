@@ -38,6 +38,9 @@ local_activity
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Hogar">Hogar</a>
               <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Restaurante">Restaurantes</a>
+              <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Turismo">Turismo</a>
+               <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Alojamientos">Alojamientos</a>
+                <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Mascotas">Mascotas</a>
               <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Salud">Salud</a>
               <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Belleza">Belleza</a>
               <a class="dropdown-item" href="'.constant("URL").'CuponesCate/cupones/render/Automotriz">Automotriz</a>
