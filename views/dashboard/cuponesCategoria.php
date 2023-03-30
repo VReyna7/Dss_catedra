@@ -27,14 +27,12 @@
 <body>
     <?php 
         require_once 'views/templates/header.php';
-        if(isset($_SESSION['EMPLEADO'])){
-            echo "<h1>Bienvenido". $_SESSION['EMPLEADO']."</h1>";
-        }
+        echo "<style>#empleado{display: none;}</style>";
         ?>
         <div class="container-fluid">
-         <div class="banner"></div>
-<h1 class="main-tittle">La cuponera</h1>
+        <h1 class="main-tittle">La cuponera</h1>
 <h5 class="main-subtittle">Donde encuentras de todo!</h5>
+         <div class="banner"></div>
 <div class="row d-flex justify-content-center">
         <?php
         foreach($this->datos as $row){
@@ -48,9 +46,9 @@
         <div class="card-body">
           <div class="brand-logo" style="width: 100px; height: 100px; float: left; margin-right: 10px; background-image: url('<?php echo constant('URL')?>public/img/<?php echo $row['logo']; ?>') ; background-repeat: no-repeat; background-position: center; background-size: contain; margin-bottom: 10px;"></div>
         <h5 class="card-title"><?php echo $row['titulo']; ?></h5>
-        <h6 class="card-subtitle mb-2   ">Antes: <?php echo $row['precioRegular']; ?></h6>
-        <h6 class="card-subtitle mb-2   ">Ahora: <?php echo $row['precioOferta']; ?></h6>
-        <p class="card-text"><?php echo $row['descripcion'];?>.</p>
+           <h6 class="card-subtitle mb-2   ">Antes: <?php echo $row['precioRegular']; ?>$</h6>
+        <h6 class="card-subtitle mb-2   ">Ahora: <?php echo $row['precioOferta']; ?>$</h6>
+        <p class="card-text" id="descripcion"><?php echo $row['descripcion'];?>.</p>
         <p class="card-text">Fecha de expiración: <?php echo $row['fechaFin'];?>.</p>
         <p><?php 
             if($row['cantidadLimite']==0){

@@ -27,6 +27,44 @@
             extract($_POST);
             if(!$this->model->searchClienteDUI($dui)){
                 if(!$this->model->searchClienteCorreo($correo)){
+            if(empty(trim($dui))){
+                $mensajeRegistro="Debe escribir un dui";
+                $this->view->mensaje = $mensajeRegistro;
+                $this->render();
+            }else if(!preg_match('/^[0-9]{8}-[0-9]{1}$/',$dui)){
+                $mensajeRegistro="debe escribir un dui con el formato 12345678-9";
+                $this->view->mensaje = $mensajeRegistro;
+                $this->render();
+            }else if(empty(trim($nombre))){
+                $mensajeRegistro="debe escribir un nombre";
+                $this->view->mensaje = $mensajeRegistro;
+                $this->render();
+            }else if(empty(trim($apellido))){
+                $mensajeRegistro="debe escribir un apellido";
+                $this->view->mensaje = $mensajeRegistro;
+                $this->render();
+            }
+            else if(empty(trim($telefono))){
+                $mensajeRegistro="debe escribir un telefono";
+                $this->view->mensaje = $mensajeRegistro;
+                $this->render();
+            }else if(!preg_match('/^[267][0-9]{3}-?[0-9]{4}$/',$telefono)){
+                 $mensajeRegistro="debe escribir un telefono valido";
+                $this->view->mensaje = $mensajeRegistro;
+                $this->render();
+            }else if(empty(trim($correo))){
+                $mensajeRegistro="debe escribir un correo";
+                $this->view->mensaje = $mensajeRegistro;
+                $this->render();
+            }else if(empty(trim($direccion))){
+                $mensajeRegistro="debe escribir un direccion";
+                $this->view->mensaje = $mensajeRegistro;
+                $this->render();
+            }else if(empty(trim($contra))){
+                $mensajeRegistro="debe escribir un contra";
+                $this->view->mensaje = $mensajeRegistro;
+                $this->render();
+            }else{
                  $codigo = rand(1000,9999);
             $destinatario = $correo; 
             $asunto = "Este mensaje es de prueba"; 
@@ -61,6 +99,7 @@
                 $this->view->mensaje = "ERROR AL MANDAR EL CORREO";
                 $this->view->render('session/registro');
               }
+             }
             }else{
                    $mensajeRegistro='Lo sentimos el correo ya esta en uso';
                    $this->view->mensaje = $mensajeRegistro;

@@ -24,9 +24,7 @@
 <body>
     <?php 
         require_once 'views/templates/header.php';
-        if(isset($_SESSION['EMPLEADO'])){
-            echo "<h1>Bienvenido". $_SESSION['EMPLEADO']."</h1>";
-        }
+        
         ?>
         <div class="container-fluid">
         <h1 class="main-tittle">La cuponera</h1>

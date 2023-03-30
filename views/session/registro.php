@@ -46,7 +46,7 @@
             </div><br>
             <label for="contra">Contraseña</label>
             <div class="col">
-                <input type="text"  class="form-control"  class="form-control" name='contra' id='contra' required>
+                <input type="password"  class="form-control"  class="form-control" name='contra' id='contra' required>
             </div><br>
             <label for="telefono">Telefono</label>
             <div class="col">
@@ -54,7 +54,7 @@
             </div><br>
             <label for="correo">Correo</label>
             <div class="col">
-                <input type="text"  class="form-control" name='correo' id='correo' required>
+                <input type="email"  class="form-control" name='correo' id='correo' required>
             </div><br>
             <label for="direccion">Direccion</label>
             <div class="col">

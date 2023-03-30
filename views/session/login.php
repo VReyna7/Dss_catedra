@@ -28,6 +28,11 @@
         <div class="mx-auto col-10 col-md-8 col-lg-6" id="contenedorForm">
      <br>
         <h1 class='center'>Inicio de sesion</h1>
+        <?php 
+            if(!empty($this->mensaje)){
+            echo '<h2 class="alert alert-danger">'.$this->mensaje.'</h2>';
+            }
+          ?>
         <form action="<?=constant('URL')?>inicioSesion/usuario/login" method='POST' class="form-group ">
         <div class="form-group row">
                 <label for="dui" >Ingrese su DUI o Codigo de empleado:</label>
@@ -43,7 +48,6 @@
         </form>
         </div>
         </div>
-        <h1><?php echo $this->mensaje; ?></h1>
         </div>
     </main>
     <?php

@@ -51,10 +51,17 @@
     margin-bottom: 10px;
 }
 
+#descripcion{
+    overflow: hidden;
+    width:100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
 .card-text{
     overflow: hidden;
     width:100%;
-    -webkit-box-orient: vertical;
 }
 
 .main-tittle{
@@ -82,15 +89,6 @@ body{
 
 }
 
-.bienvenida{
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    font-weight: bold;
-    color: crimson;
-    font-size: xx-large;
-    margin-top: 30px;
-}
-
 @supports (-webkit-text-stroke: 1px black) {
     .tittleDiv h1{
         font-size: 50px;
@@ -103,4 +101,24 @@ body{
         -webkit-text-fill-color: black;
     }
     
+}
+
+#alertaComprado{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    color: crimson;
+    font-size: xx-large;
+    margin-top: 30px;
+}
+
+#modalContent{
+    background-image: url("../img/fondo2.jpg");
+    background-size: cover;
+}
+
+.modal-header h5{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: x-large;
 }

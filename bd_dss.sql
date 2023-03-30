@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 29-03-2023 a las 08:26:02
+-- Tiempo de generación: 30-03-2023 a las 06:37:13
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.2.0
 
@@ -29,13 +29,13 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE IF NOT EXISTS `cliente` (
-  `DUI` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `apellido` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `telefono` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `direccion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `contra` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `DUI` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `apellido` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `telefono` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `direccion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `contra` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `estado` int NOT NULL,
   PRIMARY KEY (`DUI`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -54,14 +54,7 @@ INSERT INTO `cliente` (`DUI`, `nombre`, `apellido`, `telefono`, `correo`, `direc
 ('12345678-5', 'Miguel', 'Sanches', '1425-9685', 'MigueSan@gmail.com', 'Chalatenango', '123', 2),
 ('12345678-6', 'Pedri', 'Parlamo', '2516-3629', 'PPedri@gmail.com', 'Antiguo Cuscatlan', '123', 1),
 ('12345678-7', 'Samanta', 'Miranda', '2569-6958', 'Sami@gmail.com', 'San Salvador -San Salvador', '123', 2),
-('12345678-9', 'Manuel', 'Miranda', '5555-5555', 'manue@gmail.com', 'San Salvador - San salvador', '123', 2),
-('22222', 'sadasda', 'asdasda', 'asdsad', 'asdasd', 'asdasd', 'asdasd', 0),
-('22222242', 'sadasda', 'asdasda', 'asdsad', 'asdasd', 'asdasd', 'asdasd', 0),
-('2222224222', 'sadasda', 'asdasda', 'asdsad', 'asdasd', 'asdasd', 'asdasd', 0),
-('4444', 'sadsad', 'asda', '24242', 'sadasda', 'asdasd', 'asdas', 0),
-('524242', 'asdasdasda', '2asdasd', 'asdasda', 'asdasd', 'asdasd', 'asdasda', 0),
-('asdasd', 'asdasd', 'asdasdas', 'asdsad', 'asdasd', 'asdsad', 'asdsadsad', 0),
-('asdasda', 'asdasdas', 'adsadasd', 'asdsad', 'asdsad', 'sadsad', 'asdasd', 0);
+('12345678-9', 'Manuel', 'Miranda', '5555-5555', 'manue@gmail.com', 'San Salvador - San salvador', '123', 2);
 
 -- --------------------------------------------------------
 
@@ -71,9 +64,9 @@ INSERT INTO `cliente` (`DUI`, `nombre`, `apellido`, `telefono`, `correo`, `direc
 
 DROP TABLE IF EXISTS `cuponescomprados`;
 CREATE TABLE IF NOT EXISTS `cuponescomprados` (
-  `idCupon` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `idOferta` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `DuiCliente` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `idCupon` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `idOferta` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `DuiCliente` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `estado` int NOT NULL,
   PRIMARY KEY (`idCupon`),
   KEY `idOferta` (`idOferta`),
@@ -93,9 +86,7 @@ INSERT INTO `cuponescomprados` (`idCupon`, `idOferta`, `DuiCliente`, `estado`) V
 ('CU006', 'OF006', '12345678-4', 1),
 ('CU007', 'OF007', '12345678-5', 1),
 ('CU008', 'OF008', '12345678-6', 1),
-('CU009', 'OF009', '12345678-7', 1),
-('CU010', 'OF010', '12345678-9', 1),
-('CU011', 'OF002', '4444', 1);
+('CU009', 'OF009', '12345678-7', 1);
 
 -- --------------------------------------------------------
 
@@ -105,13 +96,13 @@ INSERT INTO `cuponescomprados` (`idCupon`, `idOferta`, `DuiCliente`, `estado`) V
 
 DROP TABLE IF EXISTS `empleado`;
 CREATE TABLE IF NOT EXISTS `empleado` (
-  `CodigoEmpleado` char(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `apellido` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `contra` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `idEmpresa` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `Rol` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `CodigoEmpleado` char(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `apellido` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `contra` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `idEmpresa` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Rol` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`CodigoEmpleado`),
   KEY `idEmpresa` (`idEmpresa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -140,14 +131,14 @@ INSERT INTO `empleado` (`CodigoEmpleado`, `nombre`, `apellido`, `correo`, `contr
 
 DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE IF NOT EXISTS `empresa` (
-  `CodigoEmpresa` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `direccion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `telefono` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `CodigoEmpresa` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `direccion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `telefono` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `idRubro` int NOT NULL,
   `comision` float NOT NULL,
-  `logo` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `logo` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`CodigoEmpresa`),
   KEY `idRubro` (`idRubro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -177,7 +168,7 @@ INSERT INTO `empresa` (`CodigoEmpresa`, `nombre`, `direccion`, `telefono`, `corr
 DROP TABLE IF EXISTS `estadosofertas`;
 CREATE TABLE IF NOT EXISTS `estadosofertas` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nombre` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
   `descripcion` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -199,20 +190,20 @@ INSERT INTO `estadosofertas` (`id`, `nombre`, `descripcion`) VALUES
 
 DROP TABLE IF EXISTS `oferta`;
 CREATE TABLE IF NOT EXISTS `oferta` (
-  `CodigoOferta` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `titulo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `CodigoOferta` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `titulo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `precioRegular` float NOT NULL,
   `precioOferta` float NOT NULL,
   `fechaInicio` date NOT NULL,
   `fechaFin` date NOT NULL,
   `cantidadLimite` int NOT NULL DEFAULT '0',
-  `descripcion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `idEmpresa` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `descripcion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `idEmpresa` char(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `fechaLimite` date NOT NULL,
   `CantidadVenta` int DEFAULT NULL,
   `estado` int NOT NULL,
-  `img` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `categoria` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `img` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `categoria` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`CodigoOferta`),
   KEY `idEmpresa` (`idEmpresa`),
   KEY `estado` (`estado`)
@@ -243,8 +234,8 @@ INSERT INTO `oferta` (`CodigoOferta`, `titulo`, `precioRegular`, `precioOferta`,
 DROP TABLE IF EXISTS `rubro`;
 CREATE TABLE IF NOT EXISTS `rubro` (
   `CodigoRubro` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `descripcion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `descripcion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`CodigoRubro`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1011 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -272,9 +263,9 @@ INSERT INTO `rubro` (`CodigoRubro`, `nombre`, `descripcion`) VALUES
 
 DROP TABLE IF EXISTS `test`;
 CREATE TABLE IF NOT EXISTS `test` (
-  `matricula` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `nombre` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `apellido` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `matricula` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nombre` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `apellido` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`matricula`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
